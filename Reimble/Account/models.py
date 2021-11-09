@@ -1,7 +1,9 @@
 from django.db import models
 from datetime import datetime
 
-# Create your models here.
+
+# Create your models here
+
 class Country(models.Model):
     country_name = models.CharField(max_length=220)
     country_logo = models.ImageField(upload_to="imgaes/")
@@ -33,8 +35,10 @@ class UserModel(models.Model):
     professions = models.ForeignKey(Professions, on_delete=models.CASCADE)
     sex = models.CharField(max_length=220, choices=CHOICE_SEX, null=True)
     password = models.CharField(max_length=220, null=True)
+    is_admin = models.BooleanField(default=False)
+    is_manager = models.BooleanField(default=False)
+    is_user = models.BooleanField(default=False)
+    is_new_user = models.BooleanField(default=False)
 
     def __str__(self):
         return self.username
-
-

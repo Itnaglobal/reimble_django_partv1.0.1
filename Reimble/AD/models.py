@@ -34,3 +34,7 @@ class AD(models.Model):
     ad_subcategory = models.ForeignKey(AdSubcategory, on_delete=models.CASCADE)
     ad_views = models.PositiveIntegerField(default=0)
     ad_impression = models.CharField(max_length=220, choices=CHOICE_IMPRESSION, null=True)
+    reach = models.PositiveIntegerField(default=0)
+
+    def __str__(self):
+        return self.ad_title
